@@ -12,6 +12,7 @@ main.bin: src/main.c
 	$(CC) $(C_OPTS) $< -o ./dist/$@
 run: clean prep compile
 	./dist/main.bin
+all: clean prep compile
 check:
 	clang-format --verbose -dry-run --Werror src/*
 	clang-tidy src/*.c  -checks=-readability-uppercase-literal-suffix,-readability-magic-numbers,-clang-analyzer-deadcode.DeadStores,-clang-analyzer-security.insecureAPI.rand
