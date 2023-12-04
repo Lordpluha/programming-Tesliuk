@@ -12,6 +12,8 @@ main.bin: src/main.c
 	$(CC) $(CC_props) $< -o ./dist/$@ -lm
 run:
 	./dist/main.bin
+doxygen:
+	doxygen
 all: clean prep compile run
 check:
 	clang-format --verbose -dry-run --Werror src/*
