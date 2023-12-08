@@ -12,10 +12,11 @@ main.bin: src/main.c
 	$(CC) $(CC_props) $< -o ./dist/$@ -lm
 run:
 	./dist/main.bin
-doxygen:
-	doxygen
 all: clean prep compile run
 check:
-	clang-format --verbose -dry-run --Werror src/*
-	clang-tidy src/*.c -checks=-readability-uppercase-literal-suffix,-readability-magic-numbers,-clang-analyzer-deadcode.DeadStores,-clang-analyzer-security.insecureAPI.rand
-	rm -rf src/*.dump 
+	clang-format --verbose -dry-run --Werror src/* test/*
+	cppcheck --enable=all --inconclusive --addon=cert \
+	--error-exitcode=1 -v --suppress=unreadVariable:*/main.c \
+	--suppress=knownConditionTrueFalse:*/main.c --suppress=missingIncludeSystem \
+	--check-config --suppress=*:*/test.c --suppress=unmatchedSuppression:*/main.c .
+	rm -rf src/*.dump test/*.dumpА 
