@@ -13,7 +13,7 @@ main.bin: src/main.c
 run:
 	./dist/main.bin
 doxygen:
-	doxygen
+	doxygen Doxyfile
 all: clean prep compile run
 check:
 	clang-format --verbose -dry-run --Werror src/* test/*
