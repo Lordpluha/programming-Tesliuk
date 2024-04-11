@@ -1,7 +1,6 @@
-#include <check.h>
-#include <stdbool.h>
-
 #include "../src/lib.h"
+#include <check.h>
+
 
 START_TEST(test_lib) {
     #define DATA_SIZE_SUM 3

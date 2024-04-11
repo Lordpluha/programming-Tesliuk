@@ -1,4 +1,3 @@
-/* lib.c */
 #include "lib.h"
 
 bool isDigit(char myChar) {
