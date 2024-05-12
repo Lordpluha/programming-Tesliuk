@@ -11,9 +11,18 @@
  * @brief Функцiя для виведення базової iнформацiї програми
  */
 void preview() {
-    printf("Лабораторна робота №11. Взаємодія з користувачем\n");
-    printf("Автор: Теслюк Владислав Андрiйович\n");
-    printf("Тема: Взаємодія з користувачем шляхом механізму введення/виведення\n");
+    FILE *file = fopen("assets/input.txt", "r");
+    if (file == NULL) {
+        printf("Помилка відкриття файлу assets/input.txt");
+        return;
+    }
+
+    char buffer[1024];
+    while (fgets(buffer, sizeof(buffer), file) != NULL) {
+        printf("%s", buffer);
+    }
+
+    fclose(file);
 }
 
 /**
