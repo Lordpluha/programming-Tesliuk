@@ -1,0 +1,5 @@
+0 Lab01 60.5 1 1 1 txt
+0 Video01 120.0 1 1 1 mp4
+1 Image01 30.0 1 0 0 jpg
+0 Lab02 75.0 1 1 1 docx
+1 Image02 25.0 0 0 1 png
